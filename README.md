@@ -1,0 +1,256 @@
+# React:
+React is a javascript library which is used to make a single page  web application.React application is tree of components with App component as the root bringing everything together.It is developed by meta(facebook) .This javascript library is used to build a  dynamic and interactive UIs(user interface).
+
+
+# features of React :
+1. React has simple mental model which means react is easy to understand.
+<br>
+2. No need to worry about querying and updating DOM.
+<br>
+3. React creats a web page with small and reusable components.
+<br>
+4 React will take care of creating and updating DOM element.
+<br>
+5. It saves a lot of time . 
+<br>
+6. Supported by a large community.
+<br>
+7. It works well with other tools like redux react router etc.
+<br>
+
+# Real-World Examples Built with React:
+
+Facebook (React was created by Facebook)
+<br>
+Instagram
+<br>
+WhatsApp Web
+<br>
+Netflix
+<br>
+Airbnb
+
+
+# Difference  between javascript and React :
+
+```bash
+
+Feature/Aspect	      |       JavaScript (JS)           |         React
+
+1.What it is	           A programming language	             A JavaScript library
+
+2.Created by          	   Netscape (1995)	                     Facebook (2013)
+
+3.Purpose	               Adds logic, interactivity,
+                           and control to web pages    	         Builds user interfaces with reusable components
+
+4.Type	                   Core web technology 
+                           (alongside HTML & CSS)       	     A library written in JavaScript
+
+5.DOM Manipulation       Done manually using document.           React uses a Virtual DOM to update UI efficiently
+                          querySelector, innerHTML, etc.	
+                          
+6.UI Building	             Not structured for UI building	             Specifically designed to build component-based UIs
+
+7.Reusability	             Functions and code reused manually	         Uses components for easy reuse
+
+8.Learning Curve	         Basic syntax is easier	                     Requires JS + React concepts (JSX, state, hooks)
+
+9.Example Use Case	    Simple logic, form validation, animation	 Complex single-page apps (SPAs), dashboards, etc.
+                          
+```
+
+# npx :
+npx is a command-line tool that comes with Node.js, starting from version 5.2.0 of npm. It allows you to execute npm packages directly without installing them globally. This is particularly useful when you want to run a tool or package temporarily without polluting your global npm installs.
+
+
+# npm:
+npm stands for Node Package Manager. It is the default package manager for Node.js, and it helps you: 
+<br>
+Install JavaScript libraries/packages. 
+<br>
+Manage dependencies in your project
+<br>
+Run scripts like starting your app or testing
+<br>
+Share your own packages with the world (optional)
+
+
+# vite :
+Vite (pronounced "veet") is a modern front-end build tool and development server. It’s an alternative to Create React App (CRA), and it's much faster because of how it handles development and builds.
+Vite produces Quick and small bundle size. It dynamically imports the module.
+When a file is requested by the browser, Vite transforms it (e.g.,Convert React into JS), then serves it.
+
+#   Steps How to Create a React App with Vite :
+
+```bash
+
+//To create a react project
+
+ npm create vite@latest   // here latest means vite new version
+
+select a framework :
+React
+
+select variant:
+javascript
+     
+   now run This:
+   cd projectName
+   npm Install
+   npm run dev  //This command is use for start dev server
+
+   after run : npm run dev
+   
+   a link of your project is provide like this:
+
+    http://localhost:5173/
+
+
+//To run the project using vite
+
+npm run dev
+
+//To run the project using CRA
+
+npm start
+
+```
+
+# structure of React project :
+
+```bash
+
+node_modules : contains all the installed modules required for the project.
+
+public Directory : contains the static files that do not change.
+
+src Directory/ : Main folder for the React code
+Components : Reausable  part of (components) like button,header etc.
+
+assets : Images , fonts and other static files.
+
+styles : CSS or styleSheets
+
+package.json : package.json is a crucial file in any Node.js project that provides metadata about the project and handles the management of its dependencies.
+
+package-lock.json : It provides a detailed snapshot of the entire dependency tree, including the specific versions of each installed package and their sub-dependencies. The main purpose of package-lock.json is to ensure consistent installs across different environments by "locking" the dependency versions.
+
+
+eslint.config.js : The eslint.config.js file contains your ESLint configuration — rules, plugins, environments, and parser settings — that tell ESLint how to analyze and lint your code.
+
+eslint: ESLint is a tool that automatically checks your JavaScript or TypeScript code for problems.
+
+
+vite.config.js : It contains vite config.
+
+```
+# jsx :
+
+JSX (JavaScript XML) is a syntax extension for JavaScript commonly used with React. It allows you to write HTML-like code directly within JavaScript, which makes it easier to create and visualize UI components.
+
+```bash
+
+1. What is JSX?
+Definition: JSX determines how the UI will look wherever the component is used.
+
+2. Not HTML: Though it resembles HTML, you're actually writing JSX, which stands for JavaScript XML.
+
+3. Conversion: JSX gets converted to regular JavaScript.
+
+4. Babeljs.io/repl is a tool that allows you to see how JSX is transformed into JavaScript.
+
+5. jsx must have a single parent.
+
+```
+
+In jsx , we can write javascript inside the html element using "{}". Here "{}" indicates js variables,function calls and more.
+
+```bash
+
+const name = 'John';
+const greeting = <h1>Hello, {name}!</h1>;
+
+```
+In jsx , every html code must be enclosed in some opening and closing tag . This opening and closing tag may be like a <b>div</b> or <b><>...</></b>. It means wrap the element in a single parent.
+
+
+# How to import Image(jpeg or Image file) :
+
+```bash
+
+import myImage from './image.png';
+function App() {
+  return <img src={myImage} alt="Example" />;
+}
+
+
+// How to import svg image 
+import {ReactComponent as Logo} from './logo.svg';
+function App() {
+  return <Logo/>;
+}
+
+
+```
+
+# React components :
+
+React components are independent, reusable pieces of UI that define how a part of the user interface should appear and behave.
+A React components is a function or class that return jsx .The React components is reusable.
+
+# Types of react components :
+
+1. class components:
+<br>
+• Stateful: Can manage state.
+<br><br>
+• Lifecycle: Access to lifecycle methods.
+<br><br>
+• Verbose: More boilerplate code.
+<br><br>
+• Not Preferred anymore.
+
+Example:
+
+```bash
+
+import React, { Component } from 'react';
+
+class Welcome extends Component {
+  render() {
+    return <h1>Hello, {this.props.name}</h1>;
+  }
+}
+
+```
+
+2. function components:
+
+Functional Components:
+<br><br>
+• Initially stateless which means we are not able to save some value in container like once we set the value to variable and when we dynamically want to change its value eg: onChange(event) then it does not work.
+<br><br>
+• Can use Hooks for state and effects.
+<br><br>
+• Simpler and more concise. 
+<br><br>
+• More Popular.
+
+Example:
+ 
+```bash
+
+function Welcome() {
+  return <h1>Hello world</h1>;
+}
+
+```
+
+
+
+
+
+
+
+
