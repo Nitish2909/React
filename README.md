@@ -87,7 +87,7 @@ When a file is requested by the browser, Vite transforms it (e.g.,Convert React 
 
 //To create a react project
 
- npm create vite@latest   // here latest means vite new version
+ npm create vite@latest projectName  // here latest means vite new version
 
 select a framework :
 React
@@ -201,7 +201,7 @@ A React components is a function or class that return jsx .The React components 
 
 # Types of react components :
 
-1. class components:
+1.class components:
 <br>
 • Stateful: Can manage state.
 <br><br>
@@ -224,8 +224,7 @@ class Welcome extends Component {
 }
 
 ```
-
-2. function components:
+2.function components:
 
 Functional Components:
 <br><br>
@@ -241,11 +240,143 @@ Example:
  
 ```bash
 
-function Welcome() {
+function App() {
   return <h1>Hello world</h1>;
 }
 
+default export App
+
 ```
+
+# In React (and JavaScript in general), there are two main types of imports: 
+
+<b>1.Default Imports:</b> A default import allows you to import the default export from a module. In a module, there can only be one default export.
+
+```bash
+
+// File: App.js
+export default function App() {
+  return <h1>Hello, World!</h1>;
+}
+
+// File: index.js
+import App from './App'; // 'App' is the default export of the 'App.js' file
+
+```
+
+<b>Named import :</b>A named import allows you to import specific exports from a module. These exports must be explicitly named in the module. A module can have multiple named exports, and you can import only the ones you need. Named imports must be imported using the same name as the export.
+<br>
+Note: while importing file or function in this time name of function must enclosed in { }  
+
+```bash
+
+// File: utilities.js
+export function add(a, b) {
+  return a + b;
+}
+
+export function subtract(a, b) {
+  return a - b;
+}
+
+// File: index.js
+import { add, subtract } from './utilities'; // Importing named exports from the 'utilities.js' file
+
+```
+
+# Dynamic components :
+
+<b>1.Dynamic content:</b> JSX  allows the creation of dynamic and interactive UI components.
+
+<br>
+<b>2.Javascript Expression:</b> using {} we can  embed javascript expression directly within jsx.This include  variables,function calls and more.
+
+Example:
+
+```bash
+
+function Hello(){
+    let myName = "Nitish"
+    return (
+        <p>Hello, my name is {myName}</p>
+    )
+}
+
+export default Hello;
+
+```
+
+# Reausable Components :
+
+Reusable components are self-contained blocks of code that can be used across multiple parts of a web application to maintain consistency, reduce repetition, and improve maintainability.
+
+<b>Why use Reusable components:</b>
+<br>
+1.Consistency :-  UI elements look and behave the same throughout the app.
+<br>
+2.Efficiency :- Write once, use anywhere.
+<br>
+3.Maintainability :-  Fix/update in one place, reflected everywhere.
+<br>
+Scalability :-  Makes large applications easier to manage.
+
+# Important Point from React Components and CSS Used in React :
+<b>Components must be captialized while the lowercase is used for HTML.</b>
+
+<br>
+In React, CSS can be directly imported into the component files allowing for modular and components specific styling.
+
+```bash
+// we can write inline css in the react like 
+
+<p style={{'background-color':'aqua','width':'100vw','height':'10vh'}} > Hello World </p>
+
+```
+ # Bootstrap :
+
+ <b>1. Responsive :</b>Mobile-first design for all device size.
+ <br>
+ <b>2.components:</b> Pre-styled elements like button and navbars.
+ <br>
+ <b>3.Customizable:</b> Modify default styled as needed.
+ <br>
+ <b>4.Cross-Browser:</b>consistent look across browsers.
+ <br>
+ <b>Open-source:</b>free wit community supports.
+
+ ```bash
+
+ // install Bootstrap in your project
+
+ npm i bootstrap@version
+
+ another Way:
+
+ go to the bootstrap websites and copy this command and paste it in terminal.
+
+ //how to import bootstrap 
+
+ import "bootstrap/dist/css/bootstrap.min.css";
+
+
+ //you can also install bootstrap globally(means install in your system)
+
+  npm i -g bootstrap@version 
+
+ ```
+
+ # Bootstrap cdn:
+  
+ ```bash
+
+  // you can also use bootstrap CDN in html file
+
+  <head>
+     <link rel=""  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css
+">
+  </head>
+
+  ```
 
 
 
