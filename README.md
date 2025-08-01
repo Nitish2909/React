@@ -378,6 +378,182 @@ In React, CSS can be directly imported into the component files allowing for mod
 
   ```
 
+  # React Fragments :
+
+  Allows grouping of multiple elements without extra dom nodes(like div).
+  <br>
+  Returns multiple elements without a wrapping parent.
+
+  ```bash
+  <React.Fragment>
+ <h2>Hello</h2>
+ <p>World</p>
+</React.Fragment>
+
+or
+<>... </>
+
+```
+
+# map method :
+
+1. Purpose:  Render list from array data.
+<br>
+2. It transfers the array item into jsx.
+<br>
+3. It also assigns unique key properties for optimized re-rendering. Because if we do not assign uinque key     then React will update the whole list while adding new element into the array.
+<br>
+4.key prop : Assign  unique key for optimized re-renders
+
+```bash
+
+let items = ['item1','item2'];
+<ul>
+{items.map(item => <li key={item_id}>{item}</li>)}
+</ul>
+
+```
+
+# Conditional Rendering:
+
+<b>Rendering:</b>In React, rendering refers to the process of displaying UI elements on the screen based on the current state and props of components.
+
+1.Conditional Rendering :
+<br>
+• Displying contents on certain conditions.
+ <br>
+• Allows for dynamic user interface.
+ <br><br>
+2. Methods:
+<br>
+• if-else statements:- choose between two blocks of content.
+<br>
+• Ternary operator:- Quick way to choose between two  options
+<br>
+• Logical operator :- useful for rendring content when a condition is true.
+
+Example:
+
+```bash
+
+// we can use the if-else statement  and it is chosed b/w two blocks of contents.
+
+if(items.length ===0 ){
+    return <h2>Items list is empty</h2>
+}
+else{
+ return( <ul>
+    {items.map(item => <li key={item_id}>item</li>)}
+    </ul>
+ )
+}
+
+
+// we can use ternary operator and it is quick option to choose b/w two options.
+{items.length ===0?<h2>Items list is empty</h2>:null;}
+
+// Logical operators and it is useful for rendering content when a condition is true.
+{items.length ===0 && <h2>Items list is empty</h2>}
+// In this case if the first condition is false then other condition will not checked and if the first conditon is true, only then other conditonal will checked and in this case statement inside the "h2" element will be rendered.
+
+```
+
+# Passing data via props :
+props(short for properties) are used to pass data from a parent component to a child component in the form of objects. It is unidirectional (downwards).
+<br>
+They allow components to communicate with each other.
+<br>
+Props are immutable inside the child component.
+<br>
+Props help make components reusable and dynamic.
+<br>
+
+Example:
+
+```bash
+// Parent Component
+function App() {
+  return <Welcome name="Nitish" />;
+}
+
+// Child Component
+function Welcome(props) {
+  return <h1>Hello, {props.name}!</h1>;
+}
+
+
+//output:
+
+Hello, Nitish!
+
+```
+Explanation of this Example:
+
+• The <b>App</b> component is calling the <b>Welcome</b> component.
+<br>
+• It passes a <b>prop</b> named <b>name</b> with the value <b>"Nitish"</b>.
+<br>
+• The <b>Welcome</b> component receives the <b>props</b> object.
+<br>
+• It accesses <b>props.name</b> and renders:
+<br>
+ Hello, Nitish!
+
+ <b>By using Destructring</b>
+
+ ```bash
+ //You can make the Welcome component cleaner using destructuring:
+
+ function Welcome({ name }) {
+  return <h1>Hello, {name}!</h1>;
+}
+
+```
+# css Modules :
+1.Localized class names to avoid global conflicts.
+<br>
+2.Styles are scoped to individual components.
+<br>
+3.Automatically generates uniquely class name.
+<br>
+4.Promotes modular and maintainable CSS.
+
+# How to Use CSS Modules in React 
+
+1. Create a CSS Module file.
+<br>
+Use .module.css extension:
+
+```bash
+
+/* Welcome.module.css */
+.title {
+  color: blue;
+  font-size: 24px;
+}
+
+```
+2. Import and use in your component
+
+```bash
+// Welcome.js
+import styles from './Welcome.module.css';
+
+function Welcome() {
+  return <h1 className={styles.title}>Hello, Nitish!</h1>;
+}
+
+export default Welcome;
+
+```
+• styles.title refers to the .title class inside Welcome.module.css
+<br>
+• React automatically transforms the class name to a unique identifier behind the scenes, like:
+.Welcome_title__3eTqG
+
+
+
+
 
 
 
