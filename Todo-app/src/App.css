@@ -1,0 +1,18 @@
+ 
+
+    input {
+        width: 100%;
+    }
+    .item-container{
+        text-align: left;
+    
+    }
+    .add-todo{
+        text-align: left;
+    }
+   .allrow{
+    margin: 10px 5px;
+   }
+  .all-btn{
+    min-width: 80px;
+  }

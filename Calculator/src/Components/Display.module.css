@@ -1,0 +1,9 @@
+.display{
+  margin: 20px 40px;
+  width: 230px;
+  height: 80px;
+  /* padding: 20px; */
+  font-size: 40px;
+  border-radius: 5px;
+    box-shadow: 2px 2px 5px red, -2px -2px 5px blue;
+}

@@ -551,8 +551,204 @@ export default Welcome;
 • React automatically transforms the class name to a unique identifier behind the scenes, like:
 .Welcome_title__3eTqG
 
+# Passing childern via props:
+
+In React, children refers to the content you pass between the opening and closing tags of a component.
+<br>
+1. children is a special props for passing elements into components.
+<br>
+2. Used for flexible and reusable component design.
+<br>
+3. Accessed with "props.children". 
+<br>
+4. Can be any content : string, number, jsx, components.
+<br>
+
+Exampple:
+
+```bash
+function Wrapper(props) {
+  return <div className="wrapper">{props.children}</div>;
+}
+
+function App() {
+  return (
+    <Wrapper>
+      <h1>Hello, Nitish!</h1>
+      <p>This content is passed as children.</p>
+    </Wrapper>
+  );
+}
+
+```
+Explanation of this Example:
+<br>
+<b>Wrapper Component</b>
+<br>
+1. It is a custom component.
+<br>
+2.It receives props (properties) from the parent (in this case, <App />).
+<br>
+The special prop props.children holds whatever is placed between <Wrapper> ... </Wrapper> in the parent component.
+<br><br>
+<b>App Component</b>
+<br>
+1.It uses the Wrapper component and passes some JSX (<h1>...</h1> and <p>...</p>) between its opening and closing tags.
+<br>
+2.That JSX becomes props.children in the Wrapper component.
+
+# Handling Events:
+1. React events use camelCase, e.g., onClick.
+<br>
+2. Uses synthetic events, not direct browser events.
+<br>
+3. Event handlers can be functions or arrow functions.
+<br>
+4. Use onChange for controlled form inputs.
+<br>
+5. Avoid inline arrow functions in JSX for performance.
+
+```bash
+
+// onClick Event function
+function eventHandler(event){
+  console.log("event handled");
+  console.log(event.target.value);
+}
+<button onclick={(event)=>eventHandler(event)}></button>
 
 
+// onChange Event function
+<input type="text" onchange={(event)=>eventHandler(event)}>
+//here onChange() means that an event is occured when user type any key to give the input in the input field.
+
+
+```
+
+# Managing State :
+Managing state in React means keeping track of data that changes over time and causes the UI to re-render when updated — like user input, toggles, counters, fetched data, etc.
+<br>
+1. State is a built-in object used to store dynamic data in a React component.
+<br>
+2. State is local and private to the component.
+<br>
+3. State changes cause the component to re-render.
+<br>
+4. For functional components, use the useState hook.
+<br>
+5. React Functions that start with word use are called hooks.
+<br>
+6. Hooks should only be used inside components.
+<br>
+7. Parent components can pass state down to children via props.
+<br>
+
+# How to manage state:
+
+<b>1. Managing Local State with useState() hooks(for functional components)</b>
+<br>
+<b>Syntax:</b>
+
+```bash
+
+const [state, setState] = useState(initialValue);
+
+//Here the Explanation of this syntax:,
+  const[state.setState] ->Array destructuring. "state" holds the current value, and "setState" is a function to update it.
+  useState(initialValue) ->React Hook that initializes the state with initialValue.
+
+  ```
+
+  Example:
+
+  ```bash
+
+  import { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0); // initialValue is 0
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click Me
+      </button>
+    </div>
+  );
+}
+
+```
+
+Example 2: Managing a String:
+
+```bash
+const [name, setName] = useState('');
+
+<input
+  value={name}
+  onChange={(e) => setName(e.target.value)}/>
+
+```
+
+Example 3: Managing an Object:
+
+```bash
+
+const [user, setUser] = useState({ name: '', age: 0 });
+
+setUser({ ...user, name: 'Nitish' });
+
+```
+<b>Managing Multiple States</b>
+
+```bash
+
+const [name, setName] = useState('');
+const [age, setAge] = useState(0);
+
+```
+
+# state vs Props
+
+<b>State: </b>
+<br>
+• Local and mutable data within a component.
+<br>
+• Initialized within the component.
+<br>
+• Can change over time.
+<br>
+• Causes re-render when updated.
+<br>
+• Managed using useState in functional components.
+<br>
+• state is accessed by 	useState() in functional components.
+<br><br>
+<b>Props:</b>
+• Passed into a component from its parent.
+<br>
+• Read-only (immutable) within the receiving component.
+<br>
+• Allow parent-to-child component communication.
+<br>
+• Changes in props can also cause a re-render.
+<br>
+•  props is accesssed by Passed as function parameters or props.name.
+
+# React-icon Library:
+1. You can use a lot of icons without managing them.
+<br>
+
+2. Install Package:
+<br>
+npm install react-icons –save
+<br>
+3 .Go to react icon website for icon.
+<br>
+4. Use icon:
+<br>
+import {IconName} from "react-icons/fc";
 
 
 
