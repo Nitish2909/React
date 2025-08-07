@@ -739,7 +739,6 @@ const [age, setAge] = useState(0);
 # React-icon Library:
 1. You can use a lot of icons without managing them.
 <br>
-
 2. Install Package:
 <br>
 npm install react-icons –save
@@ -749,6 +748,198 @@ npm install react-icons –save
 4. Use icon:
 <br>
 import {IconName} from "react-icons/fc";
+
+# How React Works:
+
+<b>Root Component: </b>
+<br>
+• The App is the main or root component of a React application.
+<br>
+• It's the starting point of your React component tree.
+<br>
+<b>Virtual DOM :</b>
+React uses a Virtual DOM — a copy of the actual DOM in memory.
+<br>
+• When something changes (like a button click), React:
+<br>
+1.Updates the Virtual DOM.
+<br>
+2.Compares it with the previous version (using a diffing algorithm).
+<br>
+3.Applies only the necessary changes to the real DOM.
+<br>
+
+# React Libraries :
+<b>React and ReactDOM:</b>
+<br>
+• The actual updating of the browser's DOM isn't done by React itself.
+<br>
+• It's handled by a companion library called react-dom.
+<br>
+<b>Root Element:</b>
+<br>
+• The root div acts as a container for the React app.
+<br>
+• The script tag is where the React app starts executing.
+<br>
+• If you check main.jsx, the component tree is rendered inside this root element.
+<br>
+<b>Strict Mode Component:</b>
+<br>
+• It's a special component in React.
+<br>
+• Doesn't have a visual representation.
+<br>
+• Its purpose is to spot potential issues in your React app.
+<br>
+<b>Platform Independence:</b>
+<br>
+• React's design allows it to be platform-Independent.
+<br>
+• While react-dom helps build web Uls using React, React Native can be used to craft mobile app UIs.
+
+# React Vs Angular and Vue.js
+
+```bash
+
+React, Angular, and Vue:
+React is a library while Angular and Vue.js are frameworks. 
+React focuses on UI; Angular and Vue.js offer comprehensive tools for full app development.
+
+
+Library vs. Framework:
+
+A library offers specific functionality.
+
+A framework provides a set of tools and guidelines.
+
+• In simpler terms: React is a tool; Angular and Vue.js are toolsets.
+
+React's Specialty:
+React's main role is crafting dynamic, interactive UIs.
+• It doesn't handle routing, HTTP calls, state management, and
+more.
+
+React's Flexibility:
+• React doesn't dictate tool choices for other app aspects. Developers pick what fits their project best.
+
+About Angular and Vue.js:
+Angular, developed by Google, provides a robust framework with a steep learning curve.
+Vue.js is known for its simplicity and ease of integration, making it beginner-friendly.
+
+```
+
+# Using Form: 
+<b>1. State Management:</b> 
+Each input's state is stored in the component's state.
+<b>2. Handling Changes:</b>
+ Use onChange to detect input changes.
+<b>3. Submission: </b>
+Utilize onSubmit for form submissions and prevent default with
+event.preventDefault().
+<b>4. Validation:</b>
+Implement custom validation or use third-party libraries.
+
+# useRef :
+useRef is hook in react.Here the main point about useRef.
+<br>
+1. useRef allows access to DOM elements and
+retains mutable values without re-renders.
+<br>
+2. Used with the ref attribute for direct DOM
+interactions.
+<br>
+3. Can hold previous state or prop values.
+<br>
+4. Not limited to DOM references; can hold any
+value.
+<br>
+5. Refs can be passed as props also.
+<br> 
+
+<b>Syntax of useRef :</b>
+
+```bash
+
+const refObject = useRef(initialValue);
+
+//Explanation of  this syntax:
+refObject : You're storing the returned ref object in a constant variable ( for example myRef) so you can access it later.
+
+useRef(initialValue): useRef is a hook.
+
+initialValue:
+It's the initial value you want to store inside the ref.
+Can be anything: a number, string, object, DOM element, etc.
+
+```
+<b>Why we use myRef.current in React</b>
+<br>
+
+```bash
+• When you call this:
+const myRef = useRef(initialValue);
+
+• React gives you back a ref object that looks like this:
+
+myRef = { current: initialValue }
+
+So, to access or change the actual value inside the ref, you must use:
+
+myRef.current
+
+ for example:
+
+ console.log(myRef.current);      // Read value
+ myRef.current = 'new value';     // Update value
+
+ ```
+
+ # Update state from Previous State :
+
+ <b> spread operators :</b>
+ <br>
+ Used to maintain immutability while updateing array or objects . But sometime it gives old values even after updation. It is caused because React is async in nature.
+
+ ```bash
+ 
+let items = ["item1","item2"];
+let newOne = "item3";
+let newItem = [...items,newOne]
+
+```
+<b>Functional updates :</b>
+To avoid unexpected results, use:
+
+```bash
+
+const currentValue = [{ name: "John", dueDate: "23-02-2025" }];
+
+const newValue = (currentArray) =>{
+  return  [...currentArray, { name: "David", dueDate: "23-02-2025" }]
+};
+
+const updatedArray = newValue(currentValue);
+
+console.log(updatedArray);
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
