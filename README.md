@@ -832,11 +832,14 @@ Vue.js is known for its simplicity and ease of integration, making it beginner-f
 # Using Form: 
 <b>1. State Management:</b> 
 Each input's state is stored in the component's state.
+<br>
 <b>2. Handling Changes:</b>
  Use onChange to detect input changes.
+ <br>
 <b>3. Submission: </b>
 Utilize onSubmit for form submissions and prevent default with
 event.preventDefault().
+<br>
 <b>4. Validation:</b>
 Implement custom validation or use third-party libraries.
 
@@ -924,6 +927,78 @@ const updatedArray = newValue(currentValue);
 console.log(updatedArray);
 
 ```
+
+# Context Api :
+The Context API in React provides a way to share data globally between components without passing props manually at every level (also called prop drilling).
+
+# Why is Context API used?
+Context API solves the problem of prop drilling in React. Prop Drilling occurs when data is to be passed between multiple layers before finally sending it to the required component. This makes the application slower. This problem is solved by Context API as it creates global variables to be used throughout the application without any middle components involved. It is also easier to use than React Redux.
+<br>
+<b>For Example:</b>
+
+```bash
+<App>
+  <Parent>
+    <Child>
+      <GrandChild />
+    </Child>
+  </Parent>
+</App>
+
+```
+If <b>GrandChild</b> needs data (like a user's theme, name, or language), you'd usually pass it from <b>App → Parent → Child → GrandChild</b>. That’s prop drilling — and it gets messy.
+<br><br>
+<b> Context API</b> solves this problem by passing the data directly to any child, no matter how deep.
+
+#  How to Use Context API (Step-by-Step):
+1. first to create context:
+
+```bash
+import { createContext } from 'react';
+
+const UserContext = createContext();
+
+```
+2. Provide Context Value (using Provider):
+
+```bash
+
+function App() {
+  const user = { name: 'Nitish', role: 'Student' };
+
+  return (
+    <UserContext.Provider value={user}>
+      <Parent />
+    </UserContext.Provider>
+  );
+}
+
+```
+<b>UserContext.Provider</b> wraps components that need access to the data.
+<br>
+Any component wrapped by the Provider can access the value provided. 
+<br>
+value={user} is the data you're sharing globally.
+<br><br>
+ 3. Consume Context (anywhere inside the tree):
+ <br>
+<b>Using useContext Hook (Recommended)</b>
+
+```bash
+import { useContext } from 'react';
+
+function GrandChild() {
+  const user = useContext(UserContext); // access value directly
+
+  return <h1>Hello, {user.name}!</h1>;
+}
+
+```
+ No need to pass user via props .
+
+
+
+
 
 
 
