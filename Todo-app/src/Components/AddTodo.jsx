@@ -12,20 +12,20 @@ function AddTodo({ onNewItem }) {
     onNewItem(todoName, dueDate);
   };
   return (
-    <div className="Container text-center">
-      <form className="row  allrow" onSubmit={handleAddButtonClicked}>
-        <div className="col-6">
+    <div classNameName="Container text-center">
+      <form classNameName="row  allrow" onSubmit={handleAddButtonClicked}>
+        <div classNameName="col-6">
           <input
             type="text"
             placeholder="Enter Todo here"
             ref={todoNameElement}
           />
         </div>
-        <div className="col-4">
+        <div classNameName="col-4">
           <input type="date" ref={dueDateElement} />
         </div>
-        <div className="col-2">
-          <button type="submit" className="btn btn-success  all-btn">
+        <div classNameName="col-2">
+          <button type="submit" classNameName="btn btn-success  all-btn">
             Add
           </button>
         </div>

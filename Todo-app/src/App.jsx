@@ -21,9 +21,9 @@ function App() {
   }
 
   return (
-    <center className="todo-container">
+    <center classNameName="todo-container">
       <AppName></AppName>
-      <div className="add-todo">
+      <div classNameName="add-todo">
         <AddTodo onNewItem={handleNewItem}></AddTodo>
       </div>
       {todoItems.length===0 && <WelcomeMessage></WelcomeMessage>}

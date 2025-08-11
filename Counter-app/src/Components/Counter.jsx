@@ -2,9 +2,9 @@
 // import styles from "./Counter.module.css";
 // const Counter =() =>{
 //     const [count, setCount] = useState(0)
-//     return <div className={styles.countercontainer}>
-//        <p className={styles.para}>you clicked {count}times</p>
-//        <button className={styles.btn} onClick={()=>{
+//     return <div classNameName={styles.countercontainer}>
+//        <p classNameName={styles.para}>you clicked {count}times</p>
+//        <button classNameName={styles.btn} onClick={()=>{
 //           setCount(count+1)
 //        }}  >click me</button>
 //     </div>
@@ -29,10 +29,10 @@ function Reducer(state, action) {
 const Counter = () => {
   const [count, dispatch] = useReducer(Reducer, 0);
   return (
-    <div className={styles.countercontainer}>
-      <h1 className={styles.para}>you clicked {count}times</h1>
+    <div classNameName={styles.countercontainer}>
+      <h1 classNameName={styles.para}>you clicked {count}times</h1>
       <button
-        className={styles.btn}
+        classNameName={styles.btn}
         onClick={() => {
           dispatch({ type: "INCREMENT" });
         }}
@@ -40,7 +40,7 @@ const Counter = () => {
         Increment
       </button>
       <button
-        className={styles.btn}
+        classNameName={styles.btn}
         onClick={() => {
           dispatch({ type: "DECREMENT" });
         }}

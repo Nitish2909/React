@@ -22,7 +22,7 @@ function App() {
     }
   }
 
-  return <div className={styles.calculator}>
+  return <div classNameName={styles.calculator}>
     <Display displayValue={calval}></Display>
   <ButtonContainer onButtonClick={onButtonClick}></ButtonContainer>
   

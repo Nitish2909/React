@@ -1,6 +1,6 @@
 import TodoItem from "./TodoItem"
 function TodoItems({ todoItems ,onDeleteClick }){
-    return  <><div className="item-container">
+    return  <><div classNameName="item-container">
         {todoItems.map((item)=>(
             <TodoItem 
             key = {item.name}

@@ -197,11 +197,11 @@ function App() {
 # React components :
 
 React components are independent, reusable pieces of UI that define how a part of the user interface should appear and behave.
-A React components is a function or class that return jsx .The React components is reusable.
+A React components is a function or className that return jsx .The React components is reusable.
 
 # Types of react components :
 
-1.class components:
+1.className components:
 <br>
 • Stateful: Can manage state.
 <br><br>
@@ -217,7 +217,7 @@ Example:
 
 import React, { Component } from 'react';
 
-class Welcome extends Component {
+className Welcome extends Component {
   render() {
     return <h1>Hello, {this.props.name}</h1>;
   }
@@ -510,11 +510,11 @@ Explanation of this Example:
 
 ```
 # css Modules :
-1.Localized class names to avoid global conflicts.
+1.Localized className names to avoid global conflicts.
 <br>
 2.Styles are scoped to individual components.
 <br>
-3.Automatically generates uniquely class name.
+3.Automatically generates uniquely className name.
 <br>
 4.Promotes modular and maintainable CSS.
 
@@ -540,15 +540,15 @@ Use .module.css extension:
 import styles from './Welcome.module.css';
 
 function Welcome() {
-  return <h1 className={styles.title}>Hello, Nitish!</h1>;
+  return <h1 classNameName={styles.title}>Hello, Nitish!</h1>;
 }
 
 export default Welcome;
 
 ```
-• styles.title refers to the .title class inside Welcome.module.css
+• styles.title refers to the .title className inside Welcome.module.css
 <br>
-• React automatically transforms the class name to a unique identifier behind the scenes, like:
+• React automatically transforms the className name to a unique identifier behind the scenes, like:
 .Welcome_title__3eTqG
 
 # Passing childern via props:
@@ -568,7 +568,7 @@ Exampple:
 
 ```bash
 function Wrapper(props) {
-  return <div className="wrapper">{props.children}</div>;
+  return <div classNameName="wrapper">{props.children}</div>;
 }
 
 function App() {
@@ -764,7 +764,7 @@ We use useState in React for one main reason:- to make our components remember a
 <br>
 4.Stores any type — numbers, strings, arrays, objects.
 <br>
-5.Simplifies logic in functional components without needing a class.
+5.Simplifies logic in functional components without needing a className.
 
 
 
@@ -1100,10 +1100,10 @@ function Reducer(state, action) {
 const Counter = () => {
   const [count, dispatch] = useReducer(Reducer, 0);
   return (
-    <div className={styles.countercontainer}>
-      <h1 className={styles.para}>you clicked {count}times</h1>
+    <div classNameName={styles.countercontainer}>
+      <h1 classNameName={styles.para}>you clicked {count}times</h1>
       <button
-        className={styles.btn}
+        classNameName={styles.btn}
         onClick={() => {
           dispatch({ type: "INCREMENT" });
         }}
@@ -1111,7 +1111,7 @@ const Counter = () => {
         Increment
       </button>
       <button
-        className={styles.btn}
+        classNameName={styles.btn}
         onClick={() => {
           dispatch({ type: "DECREMENT" });
         }}
