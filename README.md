@@ -1125,6 +1125,473 @@ export default Counter;
 
 ```
 
+# Working with API data:
+Using Dummy JSON :
+<br>
+How to Fetch data using "fetch" method
+
+```bash
+
+1. fetch: Modern JavaScript API for network requests.
+2. Promise-Based: Returns a Promise with a Response object.
+3. Usage: Default is GET. For POST use method: 'POST'
+4. Response: Use .then() and response.json() for JSON data. 
+5. Errors: Doesn't reject on HTTP errors. Check response.ok. 
+6. Headers: Managed using the Headers API.
+
+```
+
+```bash
+
+// Fetch data using "GET" method (bydefault)
+fetch('https://dummyjson.com/posts') 
+// return promise and if promise is fullfilled then returns response
+.then(res =>  res.json)
+// return promise and if promise is fullfilled then returns response.json
+.then(obj => console.log(obj.posts));
+
+
+
+// Post data using fetch 
+
+  fetch('https://dummyjson.com/posts/add', method:'POST',
+            headers:{ 'Content-Type': 'application/json' },
+            body:JSON.stringify({
+                title: postTitle,
+                body: postContent,
+                reactions: reactions,
+                userID: userID,
+                tags: postTags
+            })
+        ).then(res => res.json())
+            .then(post => addPost(post))
+
+```
+
+# useEffect hook:
+1. In React, useEffect is a hook which allows us to perform side effects in functional components.
+In simple words, It is used When something changes, Think of side effects as anything that happens outside the React rendering process — like:
+<br>
+• Fetching data from an API
+<br>
+• Directly manipulating the DOM
+<br>
+• Setting up subscriptions or event listeners
+<br>
+• Starting timers (setTimeout, setInterval)
+<br><br>
+2. useEffect runs automatically after every render by
+default.
+3. By providing a dependency array, useEffect will only
+run when specified variables change. An empty array
+means the effect runs once.
+<br>
+4. Multiple useEffect hooks can be used in a single
+component for organizing different side effects
+separately.
+
+Syntax:
+
+```bash
+useEffect( ()=>{
+    // Your side effect code here
+
+,}
+
+  [dependencies]); //you can [] if no dependencies
+
+//dependencies (optional): An array of values that the effect depends on. React will re-run the effectFunction whenever any value in this array changes.
+```
+Explanation:
+
+```bash
+
+1️⃣ Component renders
+        │
+        ▼
+2️⃣ React checks dependencies
+        │
+        ├── No array: run effect after every render
+        │
+        ├── []: run effect only after first render
+        │
+        └── [dep1, dep2, ...]: run effect after first render
+             AND when any listed dep changes
+        │
+        ▼
+3️⃣ Run effect function
+        │
+        ▼
+4️⃣ If cleanup function exists:
+       - Store it to run later
+        │
+        ▼
+5️⃣ When dependencies change or component unmounts:
+       - Run cleanup first
+       - Then run the effect again (if still mounted)
+
+ ```
+ # useEffect hook clean-up 
+ 
+```bash
+
+UseEffect(() => {
+    const timerID = setInterval(() => {
+    // do something
+
+    }, 1000);
+
+
+    // This is the cleanup function
+    return () => {
+    clearInterval(timerID);
+    }
+  }, []);
+
+  
+  // A Returning a function from `use Effect' allows for cleanup, ideal for removing event listeners.
+
+
+```
+
+ # advance useEffect Example
+
+ ```bash
+ 
+const [fetching, setFetching] = useState(false);
+
+
+
+useEffect(() => {
+    setFetching(true);
+
+    const controller = new AbortController();  // Browser API is used to cancel an ongoing task like a fetch request.
+    const signal = controller.signal; // signal is a member of controller
+
+    fetch('https://dummyjson.com/posts',{signal})
+        .then(res => res.json())
+        .then(data => {
+        addInitialPosts(data.posts);
+        setFetching(false);
+        }
+    );
+
+
+    // cleanup function
+    return () =>{
+        controller.abort();
+    }
+    
+}, []) // render only once initially.
+
+
+// here "controller.abort()" will abort the api calls. 
+
+```
+
+ # Handling Loading state:
+When we fetch the data from any api then before obtaining the data, we get unexpected results(like "no posts to display" even there are post on the server) because we want make decision afer the data fetched from api.
+To avoid unexpected results:
+<br>
+We use Loading spinner before the data obtained from the server. or We can show the shimmer effect before the data obtained from the server.
+<br>
+Example:
+
+```bash
+import { useState, useEffect } from "react";
+
+function App() {
+  const [data, setData] = useState(null);     // store fetched data
+  const [loading, setLoading] = useState(true); // track loading state
+  const [error, setError] = useState(null);   // optional: track errors
+
+  useEffect(() => {
+    setLoading(true); // show loader before fetching
+    fetch("https://jsonplaceholder.typicode.com/posts/1")
+      .then((response) => {
+        if (!response.ok) throw new Error("Network error");
+        return response.json();
+      })
+      .then((data) => {
+        setData(data);
+        setLoading(false); // stop loader after data arrives
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false); // stop loader even on error
+      });
+  }, []);
+
+  // Conditional Rendering
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p style={{ color: "red" }}>{error}</p>;
+
+  return (
+    <div>
+      <h1>{data.title}</h1>
+      <p>{data.body}</p>
+    </div>
+  );
+}
+
+export default App;
+```
+
+# useCallback :
+1. Memoization: Preserves function across
+renders to prevent unnecessary re-renders.
+<br>
+2. Optimization: Enhances performance in
+components with frequent updates.
+<br>
+3. Dependency Array: Recreates the function
+only when specific dependencies change.
+<br>
+4. Event Handlers: Used to keep consistent
+function references for child components.
+<br>
+5. With useEffect: Prevents infinite loops by
+maintaining function references.
+<br>
+Syntax:
+
+```bash
+const memoizedCallback = useCallback(
+  () => {
+    // function logic
+  },
+  [dependency1, dependency2]
+);
+Here,
+First argument → the function you want to memoize.
+
+Second argument → dependency array; function is recreated only if any dependency changes.
+
+Meaning of dependencies -> 
+In useCallback, the dependencies are the variables from the outer scope (outside the callback) that your function uses and that can change over time.
+
+React watches these dependencies — if any of them change, it recreates the function with the updated values.
+
+```
+
+Example:
+
+```bash
+
+const deletePost = useCallback((postid) => {
+  const deletePostAction = {
+      type: "DELETE_POST",
+      payload: {
+          id:postid
+      }
+  }
+  
+  dispatchList(deletePostAction);
+},[dispatchList])
+
+
+// Here "deletePost" depends only on "dispatchList" funtion 
+// if it changes,only then function references will be changes otherwise not. (In general whenever we pass any function to any component as props its references always changes so it causes unnecessary repaint ).
+//a new function is created every time the component renders — even if the function looks exactly the same.
+
+```
+
+#  Why do we need useCallback hook?
+Every time a component re-renders, all functions inside it are recreated in memory.
+<br>
+If you pass those functions to child components (especially React.memo components), they’ll think “oh, a new function → must re-render” — even if the logic hasn’t changed.
+<br>
+useCallback solves this by keeping the same function reference between renders unless dependencies change.
+<br>
+ # useMemo :
+ 1. Memoization: useMemo caches the result of
+expensive calculations to enhance performance.
+<br>
+2. Re-computation: Only re-computes the memoized
+value when specific dependencies change.
+<br>
+3. Optimization: Helps prevent unnecessary
+recalculations, improving component rendering
+efficiency.
+<br>
+4. Dependency Array: Uses an array of
+dependencies to determine when to recompute
+the cached value.
+<br>
+5. Comparison with useCallback: While useCallback
+memoizes functions, useMemo memoizes values
+or results of functions.
+<br>
+6. Best Use: Ideal for intensive computations or
+operations that shouldn't run on every render.
+<br>
+
+Syntax:
+
+```bash
+const memoizedValue = useMemo(() => {
+  // some expensive calculation
+  return result;
+}, [dependency1, dependency2]);
+
+```
+# Custom Hook:
+1. Reusable Logic: Custom hooks allow you to
+extract and reuse component logic across multiple
+components.
+<br>
+2. Naming Convention: Typically start with "use"
+(e.g., useWindowSize, useFetch).
+<br>
+3. Combining Hooks: Custom hooks can combine
+multiple built-in hooks like useState, useEffect,
+and others.
+<br>
+4. Sharing State: Enables sharing of stateful logic
+without changing component hierarchy.
+<br>
+5. Isolation: Helps in isolating complex logic, making
+components cleaner and easier to maintain.
+<br>
+6. Custom Return Values: Can return any value
+(arrays, objects, or any other data type) based on
+requirements.
+<br>
+
+Example:
+
+```bash
+
+const [value,toggle] = useToggle(true);
+// We can make custom hooks like "useToggle" using "useState" hook.
+
+const [value,{on,off,toggle}] = useBoolean(true);
+
+// we can make this type of custom hooks.
+
+```
+# react-router-dom:
+
+```bash
+1. Installation: Use npm install react-router-dom.
+
+2. RouterProvider: Wraps the app for routing capabilities.
+
+RouterProvider is a component from react-router-dom v7.4+ (and newer) that injects routing configuration into our React app using React's Context API.
+
+Behind the scene, It is a higher-level component that uses React's Context API to provide routing state and behavior throughout your app
+
+
+3. createBrowserRouter: helps in creating the mapping for router provider.
+
+createBrowserRouter is a function provided by react-router-dom v7.4+ that 
+creates a data-aware router using the HTML5 history API (like BrowserRouter)
+
+
+4. Declarative Routing: Easily define application routes.
+
+5. Routes are React components.
+
+```
+
+# Layouts Routes:
+In React, layouts and routes usually come into play when you’re working with React Router (commonly react-router-dom) to structure your application into pages and shared UI sections.
+<br>
+<b>1. Layouts :</b>
+<br>
+A layout is a common structure that wraps multiple pages — things like a navbar, footer, or sidebar that should appear on all (or many) pages.
+<br>
+Example:
+
+```bash
+// Layout.jsx
+import { Outlet } from "react-router-dom";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+
+export default function Layout() {
+  return (
+    <>
+      <Navbar />
+      <main>
+        <Outlet /> {/* This is where nested route content will render */}
+      </main>
+      <Footer />
+    </>
+  );
+}
+
+```
+<b>2. Routes:</b>
+<br>
+Routes define which component should be shown for which URL path.
+<br><br>
+Example:
+
+```bash
+// App.jsx
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Layout from "./Layout";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+
+export default function App() {
+  return (
+    <Router>
+      <Routes>
+        {/* Layout as a wrapper */}
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} /> {/* / */}
+          <Route path="about" element={<About />} /> {/* /about */}
+          <Route path="contact" element={<Contact />} /> {/* /contact */}
+        </Route>
+      </Routes>
+    </Router>
+  );
+}
+
+```
+<b>How it works together:</b>
+1.Layout provides the consistent structure (Navbar, Footer).
+<br>
+2.Outlet acts as a placeholder for nested routes inside that layout.
+<br>
+3.Routes tell React Router what to render in that Outlet based on the URL.
+
+# useNavigate hook in React Router:
+
+In React Router, useNavigate is a hook that lets you programmatically change the route — meaning you can navigate the user without them clicking a <Link> or <NavLink>.
+<br>
+It is  useful for:
+<br>
+Redirecting after form submission.
+<br>
+Navigating after a button click.
+<br>
+Conditional navigation (e.g., based on authentication).
+<br>
+
+Syntax:
+
+```bash
+import { useNavigate } from "react-router-dom";
+
+function MyComponent() {
+  const navigate = useNavigate();
+
+  function goToAbout() {
+    navigate("/about"); // navigate to /about
+  }
+
+  return <button onClick={goToAbout}>Go to About</button>;
+}
+
+```
+
+
+
+
 
 
 

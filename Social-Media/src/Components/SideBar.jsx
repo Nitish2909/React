@@ -1,9 +1,10 @@
-function SideBar({selectedTab,setSelectedTab}) {
+import { Link } from "react-router-dom";
 
+function SideBar() {
   return (
     <div
       className="d-flex flex-column flex-shrink-0 p-3 text-bg-dark  Sidebar"
-      style={{width: "200px"}}
+      style={{ width: "200px" }}
     >
       {" "}
       <a
@@ -11,7 +12,12 @@ function SideBar({selectedTab,setSelectedTab}) {
         className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
       >
         {" "}
-        <svg className="bi pe-none me-2" width="40" height="32" aria-hidden="true">
+        <svg
+          className="bi pe-none me-2"
+          width="40"
+          height="32"
+          aria-hidden="true"
+        >
           <use xlinkHref="#bootstrap"></use>
         </svg>{" "}
         <span className="fs-4">Sidebar</span>{" "}
@@ -19,10 +25,13 @@ function SideBar({selectedTab,setSelectedTab}) {
       <hr />{" "}
       <ul className="nav nav-pills flex-column mb-auto">
         {" "}
-        <li onClick={()=>setSelectedTab("Home")} className="nav-item">
+        <li className="nav-item">
           {" "}
-          <a href="#" className={`nav-link text-white ${
-            selectedTab==="Home" && "active" }`} aria-current="page">
+          <Link
+            to="/"
+            className="nav-link text-white"
+            aria-current="page"
+          >
             {" "}
             <svg
               className="bi pe-none me-2"
@@ -33,11 +42,14 @@ function SideBar({selectedTab,setSelectedTab}) {
               <use xlinkHref="#home"></use>
             </svg>
             Home
-          </a>{" "}
+          </Link>{" "}
         </li>{" "}
-        <li onClick={()=>setSelectedTab("Create Post")}>
+        <li>
           {" "}
-          <a href="#" className={`nav-link text-white ${selectedTab==="Create Post" && "active"}`}>
+          <Link
+            to="/create-post"
+            className="nav-link text-white "
+          >
             {" "}
             <svg
               className="bi pe-none me-2"
@@ -48,7 +60,7 @@ function SideBar({selectedTab,setSelectedTab}) {
               <use xlinkHref="#speedometer2"></use>
             </svg>
             Create Post
-          </a>{" "}
+          </Link>{" "}
         </li>{" "}
       </ul>{" "}
       <hr />{" "}
