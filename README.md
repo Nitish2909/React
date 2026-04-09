@@ -1,6 +1,5 @@
 # React:
-React is a javascript library which is used to make a single page  web application.React application is tree of components with App component as the root bringing everything together.It is developed by meta(facebook) .This javascript library is used to build a  dynamic and interactive UIs(user interface).
-
+React is a javascript library which is used to make a single page web application.React application is tree of components with App component as the root bringing everything together.It was developed by the Meta(Facebook) Software Engineer Jordan Walke in 2013 .This javascript library is used to build a dynamic and interactive UIs(user interface).
 
 # features of React :
 1. React has simple mental model which means react is easy to understand.
@@ -30,6 +29,43 @@ Netflix
 <br>
 Airbnb
 
+# Difference between Real DOM vs Virtual DOM:
+
+<b>Real DOM :</b>
+The Real DOM is the actual structure of the web page (HTML elements) that the browser creates.
+<br>
+For Example If you change one item in a list Entire DOM may be recalculated and repainted.
+<br>
+
+<b>How its works:</b>
+
+```bash
+When you update something, the browser rebuilds the DOM tree.
+
+It then re-renders the UI.
+
+Even small changes can cause full re-rendering. 
+
+```
+
+<b>Virtual DOM :</b>
+<br>
+The Virtual DOM is a lightweight copy of the Real DOM (kept in memory).
+<br>
+
+<b>How its Works:</b>
+
+```bash
+1. React creates a Virtual DOM
+
+2. When state changes:
+    A new Virtual DOM is created
+
+3. React compares old vs new (this is called diffing).
+
+4. Only the changed parts are updated in the Real DOM.
+
+```
 
 # Difference  between javascript and React :
 
@@ -148,6 +184,7 @@ vite.config.js : It contains vite config.
 # jsx :
 
 JSX (JavaScript XML) is a syntax extension for JavaScript commonly used with React. It allows you to write HTML-like code directly within JavaScript, which makes it easier to create and visualize UI components.
+(jsx = javascript syntax extension)
 
 ```bash
 
@@ -1627,9 +1664,7 @@ to get actual input data.
 6. redirect() response can be returned for
 navigation after submission.
 
-
-
-
+ 
 
 
 
