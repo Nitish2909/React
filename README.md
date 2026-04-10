@@ -662,6 +662,25 @@ function eventHandler(event){
 
 ```
 
+# Hooks:
+Hooks are special functions in React that let you use state and other React features inside functional components.
+<br>
+
+<b>Why hooks are used :</b>
+
+```bash
+1. Use state in functional components.
+
+2. Avoid class components (simpler code).
+
+3. Reuse logic easily.
+
+4. Better code readability & maintainability.
+
+5. Handle lifecycle methods (mount, update, unmount).
+
+```
+
 # Managing State :
 Managing state in React means keeping track of data that changes over time and causes the UI to re-render when updated — like user input, toggles, counters, fetched data, etc.
 <br>
