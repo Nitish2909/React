@@ -3,16 +3,18 @@ import React, { useState } from 'react'
 
 
 const App = () => {
-  const [count, setcount] = useState(0)
-
-  const counter = ()=>{
-    setcount(count+1)
-  }
+ 
+const handleSubmit = (e) =>{
+  e.preventDefault();
+console.log(e);
+}
   return (
     <div>
-      <h1>{count}</h1>
-      <button onClick={counter}>Increase++</button>
-       <button onClick={()=> setcount(count-1)}>Decrease--</button>
+      <form onSubmit={handleSubmit}>
+        <input type='text' placeholder='Enter Your Name'/>
+        <br/>
+        <button onSubmit={handleSubmit}>Submit</button>
+      </form>
     </div>
   )
 }
