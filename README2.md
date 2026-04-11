@@ -123,6 +123,8 @@ When button clicks -> state updates -> UI updates.
 
 <b>3. Types of State :</b>
 
+```bash
+
 1. Number state:
 
 const [count, setCount] = useState(0);
@@ -160,10 +162,12 @@ setCount(prev => prev + 1);
 <b>5. Updating Object State</b>
 
 ```bash
+
 setUser(prev => ({
   ...prev,
   name: "Nitish"
 }));
+
 ```
 
 <b>6. Updating Array State</b>
@@ -177,6 +181,7 @@ setItems(prev => [...prev, "New Item"]);
 <b>7. State with Forms</b>
 
 ```bash
+
 const [name, setName] = useState("");
 
 <input 
