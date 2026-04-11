@@ -190,5 +190,94 @@ const [name, setName] = useState("");
 />
 
 ```
+# Form Handling :
+Form handling in React means managing user input using state, handling submission, and validating data.
+<br>
+Mostly form handling is done by following this:
+
+```bash
+
+1. useState -> This is used to store input vlaue of form.In simple words we can say that useState is used to store and manage form data. 
+This is used in form To save user input , To make input controlled by React . 
+
+2. onChange -> onChange is an event that runs when input value changes.
+
+3. onSubmit -> onSubmit is an event that runs when form is submitted.
+
+```
+<b>Example :</b>
+
+```bash
+import { useState } from "react";
+
+function Form() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: ""
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input 
+        name="name"
+        placeholder="Name"
+        onChange={handleChange}
+      />
+
+      <input 
+        name="email"
+        placeholder="Email"
+        onChange={handleChange}
+      />
+
+      <button type="submit">Submit</button>
+    </form>
+  );
+}
+
+```
+# Two Way Data Binding :
+Two-way data binding means data flows between UI and state in both directions.
+<br>
+In React, it is achieved using:
+<br>
+useState
+<br>
+onChange
+
+<img src="./Images/img.png" alt="">
+<b>Example :</b>
+
+```bash
+import { useState } from "react";
+
+function App() {
+  const [name, setName] = useState("");
+
+  return (
+    <>
+      <input 
+        value={name} 
+        onChange={(e) => setName(e.target.value)} 
+      />
+
+      <h1>{name}</h1>
+    </>
+  );
+}
+
+```
 
 
