@@ -320,3 +320,137 @@ Example:
 localStorage.clear();
 
 ```
+<b>If You want to store object in localStorage</b>
+<br>
+Objects and arrays are stored using JSON.stringify() and retrieved using JSON.parse() because localStorage only supports strings.
+
+```bash
+const user = {
+  name: "Rohan",
+  age: 21
+};
+
+// Store
+localStorage.setItem("user", JSON.stringify(user));
+
+// Get
+const storedUser = JSON.parse(localStorage.getItem("user"));
+
+console.log(storedUser.name); // Rohan
+
+```
+
+<b>If You want to store Array in localStorage</b>
+
+```bash
+const user = {
+  name: "Nitish",
+  age: 21
+};
+
+// Store
+localStorage.setItem("user", JSON.stringify(user));
+
+// Get
+const storedUser = JSON.parse(localStorage.getItem("user"));
+
+console.log(storedUser.name); // Nitish
+
+```
+
+# API calls in React :
+API (Application Programming Interface) is a way to get or send data between frontend (React) and backend/server.
+<br>
+For Example :
+<br>
+1. Fetch users.
+<br>
+2. Send ligin Data.
+<br>
+3. Get Products.
+<br>
+
+<b>Why API Calls are Used?</b>
+
+```bash
+1. To get dynamic data
+
+2. To connect frontend with backend
+
+3. To store/fetch data from database
+
+```
+
+<b>How to Make API Calls in React?</b>
+There are mainly two ways or method that is used to make API Calls in React.
+
+```bash
+1. fetch() -> This is an built in function or method 
+
+2. axios -> This is a third party library that is used to call an API in  react.
+
+```
+
+<b>1. Using fetch() (Basic)</b>
+
+```bash
+import { useState, useEffect } from "react";
+
+function App() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then(res => res.json())
+      .then(data => setData(data));
+  }, []);
+
+  return (
+    <>
+      {data.map(user => (
+        <p key={user.id}>{user.name}</p>
+      ))}
+    </>
+  );
+}
+
+```
+<br>
+Flow of this code:
+<br>
+1. Component loads
+<br>
+2. useEffect runs
+<br>
+3. API call happens
+<br>
+4. Data stored in state
+<br>
+5. UI updates
+
+<b>Using async/await (Best Practice)</b>
+
+```bash
+useEffect(() => {
+  const fetchData = async () => {
+    const res = await fetch("https://jsonplaceholder.typicode.com/users");
+    const data = await res.json();
+    setData(data);
+  };
+
+  fetchData();
+}, []);
+
+```
+
+<b>2. Using Axios</b>
+
+<b>Install axios library</b>
+
+```bash
+npm install axios
+```
+
+
+
+
