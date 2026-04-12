@@ -450,7 +450,19 @@ useEffect(() => {
 ```bash
 npm install axios
 ```
+<br>
 
+<b>Example:</b>
+
+```bash
+import axios from "axios";
+
+useEffect(() => {
+  axios.get("https://jsonplaceholder.typicode.com/users")
+    .then(res => setData(res.data));
+}, []);
+
+```
 
 
 
