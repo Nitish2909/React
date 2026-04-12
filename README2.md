@@ -282,7 +282,7 @@ function App() {
 
 # Local Storage:
 Local Storage is a type of Web Storage that is used to store data in the user's browser.
-Local Storage stores the data permanently (until manually cleared) even after page reload , browser close.<b>Always remember data store in local storage as String.</b>
+Local Storage stores the data permanently (until manually cleared) even after page reload , browser close.Data Store in Local Storage as key value pair. <b>Always remember data store in local storage as String.</b>
 <br>
 
 <b>Use Case :</b>
