@@ -280,4 +280,43 @@ function App() {
 
 ```
 
+# Local Storage:
+Local Storage is a type of Web Storage that is used to store data in the user's browser.
+Local Storage stores the data permanently (until manually cleared) even after page reload , browser close.<b>Always remember data store in local storage as String.</b>
+<br>
 
+<b>Use Case :</b>
+
+```bash
+1. Save user login info
+
+2. Theme (dark/light mode)
+
+3. Cart items
+
+```
+
+<b>Methods of Local Storage :</b>
+
+```bash
+1. localStorage.setItem("key", "value")   => This method is used to set data in local storage.
+
+Example:
+localStorage.setItem("name", "Nitish");
+
+2. localStorage.getItem("key");   => This method is used to get data from local storage.
+
+Example:
+localStorage.getItem("name");   
+
+3. localStorage.removeItem("key"); => This method is used to remove or delete data from local storage.
+
+Exammple:
+localStorage.removeItem("name");
+
+4. localStorage.clear();  => This method is used to clear all data from local storage.
+
+Example:
+localStorage.clear();
+
+```
