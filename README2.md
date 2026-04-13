@@ -465,6 +465,77 @@ useEffect(() => {
 ```
 
 # useEffect hook :
+useEffect is a React Hook used to handle side effects in a component.
+<br>
+In Simple words we can say that Think of useEffect like "Do something after UI render". 
+<br>
+what are side effects here?
+<br>
+Things that happen outside rendering UI, like:
+
+```bash
+API calls
+
+Fetch data
+
+Timer / setInterval
+
+DOM updates
+
+Event listeners
+
+```
+
+<b>Syntax:</b>
+
+```bash
+useEffect(() => {
+  // side effect code
+}, [dependencies]);
+
+
+//First argument -> function (effect)
+//Second argument -> dependency array
+
+```
+
+<b>There are 3 main cases of useEffect</b>
+<br>
+
+<b>1. Run Only Once (On Mount):</b>
+
+```bash
+useEffect(() => {
+  console.log("Component Mounted");
+}, []);
+
+
+            // It Runs only once when component loads. mostly used for api call.
+
+```
+
+<b>2. Run on State Change:</b>
+
+```bash
+useEffect(() => {
+  console.log("Count changed");
+}, [count]);
+
+              //Runs when count changes
+
+```
+
+<b>3. Run on Every Render:</b>
+
+```bash
+useEffect(() => {
+  console.log("Runs every time");
+});
+
+
+        //No dependency array -> runs on every render
+
+```
 
 
 
