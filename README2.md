@@ -782,7 +782,109 @@ const About = lazy(() => import("./About"));
 ```
 Loads component only when needed.
 
+# ContextAPI :
+ The Context API in React is a built-in feature that allows you to share data (state) across multiple components without passing props manually at every level.
+ <br>
+ In simple words we can say that It helps you avoid "prop drilling" (passing props from parent -> child -> child -> child…).
+<br>
 
+<b>Core or Basic  Concepts</b>
+<br>
+There are 3 main steps:
+<br>
+
+<b>1. Create Context</b>
+
+```bash
+import { createContext } from "react";
+
+export const UserContext = createContext();
+
+```
+
+<b>2.Provide Context (Provider)</b>
+
+```bash
+<UserContext.Provider value={{ user: "Nitish" }}>
+  <App />
+</UserContext.Provider>
+
+// Makes data available to all children
+
+```
+<b>3. Consume or use Context</b>
+
+```bash
+import { useContext } from "react";
+import { UserContext } from "./UserContext";
+
+const user = useContext(UserContext);
+
+```
+<b>Basic Example</b>
+<br>
+
+<b>Step 1: Create Context</b>
+
+```bash
+export const ThemeContext = createContext();
+
+```
+<b>Step 2: Wrap App</b>
+
+```bash
+<ThemeContext.Provider value={{ theme: "dark" }}>
+  <App />
+</ThemeContext.Provider>
+```
+<b>Step 3: Use in Child</b>
+
+```bash
+const { theme } = useContext(ThemeContext);
+
+return <h1>{theme}</h1>;
+
+```
+
+<b>Intermediate Concepts</b>
+<br>
+
+<b>1. Dynamic State with useState</b>
+
+```bash
+const [theme, setTheme] = useState("light");
+
+<ThemeContext.Provider value={{ theme, setTheme }}>
+  <App />
+</ThemeContext.Provider>
+
+```
+
+<b>2. Multiple Contexts</b>
+
+```bash
+<AuthContext.Provider value={auth}>
+  <ThemeContext.Provider value={theme}>
+    <App />
+  </ThemeContext.Provider>
+</AuthContext.Provider>
+
+```
+
+<b>3. Custom Hook (Best Practice)</b>
+
+```bash
+export const useUser = () => {
+  return useContext(UserContext);
+};
+
+```
+usage:
+
+```bash
+const { user } = useUser();
+
+```
 
 
 
