@@ -537,6 +537,253 @@ useEffect(() => {
 
 ```
 
+# react-router-dom :
+React Router DOM is a library that enables client-side routing in React applications. It allows you to navigate between different components/pages without reloading the entire webpage, making your app behave like a Single Page Application (SPA).
+<br>
+In Simple words we can say that It helps you create multiple pages in React without refreshing the browser.
+<br>
+
+<b>Why React Router is Used?</b>
+
+```bash
+Without React Router:
+
+    ->  Every navigation -> full page reload
+    ->  Slow performance
+    ->  Bad user experience
+
+With React Router:
+
+    -> Fast navigation 
+    -> No reload
+    -> Maintains state
+    -> Better UX
+
+```
+<b>Installation</b>
+
+``bash
+npm install react-router-dom
+
+```
+<b>Basic Concepts</b>
+<br>
+
+<b>1. BrowserRouter (Wrapper)</b>
+<br>
+Wraps your whole app.
+
+```bash
+import { BrowserRouter } from "react-router-dom";
+
+<BrowserRouter>
+  <App />
+</BrowserRouter>
+
+```
+It enables routing in your app.
+<br>
+
+<b>2. Routes and Route</b>
+<br>
+Used to define paths and components.
+
+```bash
+import { Routes, Route } from "react-router-dom";
+
+<Routes>
+  <Route path="/" element={<Home />} />
+  <Route path="/about" element={<About />} />
+</Routes>
+
+       //Here,
+       //path = URL,
+       //element= Component to Render
+
+```
+
+<b>Link (Navigation)</b>
+
+```bash
+import { Link } from "react-router-dom";
+
+<Link to="/about">Go to About</Link>
+
+```
+<b> 4. useNavigate (Programmatic Navigation)</b>
+
+```bash
+import { useNavigate } from "react-router-dom";
+
+const navigate = useNavigate();
+
+navigate("/about");
+
+```
+
+<b>Example (Basic App)</b>
+
+```bash
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+
+function App() {
+  return (
+    <BrowserRouter>
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<h1>Home Page</h1>} />
+        <Route path="/about" element={<h1>About Page</h1>} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+```
+
+<b>Intermediate Concepts</b>
+<br>
+
+<b>1. Dynamic Routing (URL Params)</b>
+
+```bash
+<Route path="/user/:id" element={<User />} />
+
+```
+<br>
+
+Access param:
+
+```bash
+import { useParams } from "react-router-dom";
+
+const { id } = useParams();
+
+
+// URL: /user/101 → id = 101
+
+```
+<br>
+
+<b>2. Nested Routes</b>
+
+```bash
+<Route path="/dashboard" element={<Dashboard />}>
+  <Route path="profile" element={<Profile />} />
+  <Route path="settings" element={<Settings />} />
+</Route>
+
+```
+<br>
+Inside Dashboard:
+
+```bash
+import { Outlet } from "react-router-dom";
+
+<Outlet />
+
+```
+<br>
+
+<b>3. 404 Page (Not Found)</b>
+
+```bash
+<Route path="*" element={<h1>Page Not Found</h1>} />
+
+```
+<br>
+
+<b>4. NavLink (Active Styling)</b>
+
+```bash
+import { NavLink } from "react-router-dom";
+
+<NavLink to="/about" className={({ isActive }) => isActive ? "active" : ""}>
+  About
+</NavLink>
+
+
+//Automatically detects active route
+
+```
+
+<b>Advanced Concepts</b>
+<br>
+
+<b>1. Protected Routes (Authentication)</b>
+
+```bash
+const ProtectedRoute = ({ children }) => {
+  const isAuth = true;
+
+  return isAuth ? children : <Navigate to="/login" />;
+};
+
+```
+<br>
+Usage:
+
+```bash
+<Route path="/dashboard" element={
+  <ProtectedRoute>
+    <Dashboard />
+  </ProtectedRoute>
+} />
+
+```
+<br>
+
+<b>2. useLocation</b>
+
+```bash
+import { useLocation } from "react-router-dom";
+
+const location = useLocation();
+console.log(location.pathname);
+
+
+//Gives current URL info
+
+```
+<br>
+
+<b>3. Passing Data Between Routes</b>
+
+```bash
+navigate("/about", { state: { name: "Nitish" } });
+
+```
+Receive:
+<br>
+
+```bash
+import { useLocation } from "react-router-dom";
+
+const location = useLocation();
+console.log(location.state.name);
+
+```
+<br>
+
+<b>4. Lazy Loading (Performance Optimization)</b>
+
+```bash
+import { lazy, Suspense } from "react";
+
+const About = lazy(() => import("./About"));
+
+<Suspense fallback={<h1>Loading...</h1>}>
+  <About />
+</Suspense>
+
+```
+Loads component only when needed.
+
+
+
 
 
 
