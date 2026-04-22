@@ -896,7 +896,78 @@ Code Splitting is a performance optimization technique where your JavaScript bun
 Normally, when you build a React or web app, everything gets bundled into a single file (e.g., main.js).
 This can become very large, slowing down your app's initial load time.
 Code Splitting solves this by Breaking code into separate bundles (chunks) , 
-Loading only the required code at the right time
+Loading only the required code at the right time.
+<b>In simple words we can say that code Splitting is a A build-time process where bundlers (like  Vite) split code into multiple bundles that can be loaded dynamically.</b>
+<br>
+
+<b>2. Lazy Loading :</b>
+<br>
+Lazy Loading is a technique where components or resources are loaded only when they are actually needed, not at the initial page load.
+It is usually implemented using Code Splitting.
+<br>
+
+Example:
+
+<b>1. Simple Example With Code Splitting + Lazy Loading</b>
+
+```bash
+import React, { Suspense } from "react";
+
+const Dashboard = React.lazy(() => import("./Dashboard"));
+
+function App() {
+  return (
+    <div>
+      <h1>My App</h1>
+
+      <Suspense fallback={<h2>Loading...</h2>}>
+        <Dashboard />
+      </Suspense>
+    </div>
+  );
+}
+
+export default App;
+
+```
+<b>Explanation :</b>
+<br>
+1. React.lazy() -> Splits the code into a separate chunk (small chunks).
+<br>
+2. import("./Dashboard") -> Dynamic import (creates new bundle).
+<br>
+3. Suspense -> Shows fallback UI while loading.
+<br>
+
+<b>2. Routing Based Lazy Loading </b>
+Routing Based lazy loading mostly used in real world application to Load pages only when user visits them.
+
+```bash
+import React, { Suspense } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+const Home = React.lazy(() => import("./Home"));
+const About = React.lazy(() => import("./About"));
+const Contact = React.lazy(() => import("./Contact"));
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Suspense fallback={<h2>Loading Page...</h2>}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </Suspense>
+    </BrowserRouter>
+  );
+}
+
+export default App;
+
+```
+
 
 
 
