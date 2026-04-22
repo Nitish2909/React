@@ -892,7 +892,11 @@ Code Splitting and Lazy Loading is an important techniques used in modern web de
 
 <b>1. Code Splitting</b>
 <br>
-
+Code Splitting is a performance optimization technique where your JavaScript bundle is divided into smaller chunks instead of sending one large file to the browser.
+Normally, when you build a React or web app, everything gets bundled into a single file (e.g., main.js).
+This can become very large, slowing down your app's initial load time.
+Code Splitting solves this by Breaking code into separate bundles (chunks) , 
+Loading only the required code at the right time
 
 
 
