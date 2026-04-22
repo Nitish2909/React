@@ -886,6 +886,15 @@ const { user } = useUser();
 
 ```
 
+# Code Spliting and Lazy Loading in React?
+Code Splitting and Lazy Loading is an important techniques used in modern web development to improve website performance.They are specially useful in a large Single Page Applications (SPAs) built using framework like React and Angular.This techniques reduce the initial Loading time of a web application and improve user experience.
+<br>
+
+<b>1. Code Splitting</b>
+<br>
+
+
+
 
 
 
