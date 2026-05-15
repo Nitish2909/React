@@ -968,6 +968,10 @@ export default App;
 
 ```
 
+# Caching Strategies :
+Caching strategies are techniques used to store frequently accessed data in a temporary storage area (cache) so that future requests can be served faster. Instead of fetching data repeatedly from slow sources like databases or servers, cached data is reused, improving performance, reducing latency, and saving resources. These strategies are widely used in web applications, operating systems, and databases to enhance speed, efficiency, and user experience.
+
+
 
 
 
