@@ -971,6 +971,9 @@ export default App;
 # Caching Strategies :
 Caching strategies are techniques used to store frequently accessed data in a temporary storage area (cache) so that future requests can be served faster. Instead of fetching data repeatedly from slow sources like databases or servers, cached data is reused, improving performance, reducing latency, and saving resources. These strategies are widely used in web applications, operating systems, and databases to enhance speed, efficiency, and user experience.
 
+# Optimizing Images and Assets:
+Optimizing images and assets means reducing the size and improving the efficiency of images, videos, CSS, JavaScript, and other files used in a website or application without losing quality. This process helps webpages load faster, reduces bandwidth usage, and improves user experience and performance. Techniques include compression, resizing, using modern formats, and minimizing unnecessary data so that assets are delivered quickly and efficiently.
+
 
 
 
