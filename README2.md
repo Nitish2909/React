@@ -886,6 +886,96 @@ const { user } = useUser();
 
 ```
 
+# Component based architecture :
+Component-Based Architecture is a software design approach in which an application is built using small, independent, and reusable units called components. Each component handles a specific part of the functionality and can be developed, tested, and maintained separately. These components interact with each other to form a complete system, making development more organized, scalable, and efficient. It is widely used in modern frameworks like React and Angular.
+
+Example:
+
+```bash
+
+const Welcome = () => {
+ return <h1>Welcome to My Website</h1>;
+}
+export default Welcome;
+
+
+
+Usage:
+
+import Welcome from './Welcome';
+
+const App = () => {
+
+ return (
+ <div>
+ <Welcome />
+ </div>
+ );
+}
+
+
+```
+
+<b>Types of Components </b>
+
+1. Functional Component ->
+<br>
+A Functional Component is a simple JavaScript function that returns JSX (HTML-like code). It is lightweight, easy to write, and mostly used in modern React applications.
+
+Syntax:
+
+```bash
+variable ComponentName = () => {
+   return <h1>Message</h1>;
+}
+
+```
+
+Exammple:
+
+```bash
+import React from "react";
+
+// Functional Component
+function Welcome() {
+  return <h1>Hello Nitish!</h1>; // Display heading
+}
+
+export default Welcome;
+
+```
+
+2. Class Components ->
+<br>
+A Class Component is a JavaScript class that extends React.Component. It can store data using state and includes lifecycle methods.
+
+Syntax:
+
+```bash
+class ComponentName extends React.Component {
+   render() {
+      return <h1>Message</h1>;
+   }
+}
+
+```
+
+Example:
+
+```bash
+import React, { Component } from "react";
+
+// Class Component
+class Welcome extends Component {
+  render() {
+    return <h1>Hello Nitish!</h1>; // Display heading
+  }
+}
+
+export default Welcome;
+
+```
+
 # Code Spliting and Lazy Loading in React?
 Code Splitting and Lazy Loading is an important techniques used in modern web development to improve website performance.They are specially useful in a large Single Page Applications (SPAs) built using framework like React and Angular.This techniques reduce the initial Loading time of a web application and improve user experience.
 <br>
