@@ -1,4 +1,5 @@
 # hooks:
+
 Hooks are special function that let you use state and other react features inside functional components.Before hooks these features only available in class components.
 <br>
 In Simple words we can say that Hooks allow functions to have access to state and other React features without using classes.
@@ -29,11 +30,13 @@ In Simple words we can say that Hooks allow functions to have access to state an
 3. Don't use hooks inside loops and conditions.
 
 ```
+
 <b>Here are some hooks that are mostly used in react</b>
 
 <img src="./Images/hooks.png" alt="">
 
 # State in React :
+
 State is a built-in object which is used to store data that can change over time and control the UI.
 <br>
 In Simple terms State is like a switch that controls UI behavior. When it changes, the UI updates automatically.
@@ -85,6 +88,7 @@ Button click -> changes state
 UI updates automatically
 
 ```
+
 # useState :
 
 <b> 1. Basic Syntax:</b>
@@ -118,6 +122,7 @@ function Counter() {
   );
 }
 ```
+
 When button clicks -> state updates -> UI updates.
 <br>
 
@@ -146,6 +151,7 @@ const [items, setItems] = useState([]);
 const [user, setUser] = useState({ name: "", age: 0 });
 
 ```
+
 <b>4. Updating State :</b>
 
 ```bash
@@ -159,6 +165,7 @@ setCount(count + 1);
 setCount(prev => prev + 1);
 
 ```
+
 <b>5. Updating Object State</b>
 
 ```bash
@@ -184,27 +191,30 @@ setItems(prev => [...prev, "New Item"]);
 
 const [name, setName] = useState("");
 
-<input 
-  value={name} 
-  onChange={(e) => setName(e.target.value)} 
+<input
+  value={name}
+  onChange={(e) => setName(e.target.value)}
 />
 
 ```
+
 # Form Handling :
+
 Form handling in React means managing user input using state, handling submission, and validating data.
 <br>
 Mostly form handling is done by following this:
 
 ```bash
 
-1. useState -> This is used to store input vlaue of form.In simple words we can say that useState is used to store and manage form data. 
-This is used in form To save user input , To make input controlled by React . 
+1. useState -> This is used to store input vlaue of form.In simple words we can say that useState is used to store and manage form data.
+This is used in form To save user input , To make input controlled by React .
 
 2. onChange -> onChange is an event that runs when input value changes.
 
 3. onSubmit -> onSubmit is an event that runs when form is submitted.
 
 ```
+
 <b>Example :</b>
 
 ```bash
@@ -230,13 +240,13 @@ function Form() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input 
+      <input
         name="name"
         placeholder="Name"
         onChange={handleChange}
       />
 
-      <input 
+      <input
         name="email"
         placeholder="Email"
         onChange={handleChange}
@@ -248,7 +258,9 @@ function Form() {
 }
 
 ```
+
 # Two Way Data Binding :
+
 Two-way data binding means data flows between UI and state in both directions.
 <br>
 In React, it is achieved using:
@@ -268,9 +280,9 @@ function App() {
 
   return (
     <>
-      <input 
-        value={name} 
-        onChange={(e) => setName(e.target.value)} 
+      <input
+        value={name}
+        onChange={(e) => setName(e.target.value)}
       />
 
       <h1>{name}</h1>
@@ -281,6 +293,7 @@ function App() {
 ```
 
 # Local Storage:
+
 Local Storage is a type of Web Storage that is used to store data in the user's browser.
 Local Storage stores the data permanently (until manually cleared) even after page reload , browser close.Data Store in Local Storage as key value pair. <b>Always remember data store in local storage as String.</b>
 <br>
@@ -307,7 +320,7 @@ localStorage.setItem("name", "Nitish");
 2. localStorage.getItem("key");   => This method is used to get data from local storage.
 
 Example:
-localStorage.getItem("name");   
+localStorage.getItem("name");
 
 3. localStorage.removeItem("key"); => This method is used to remove or delete data from local storage.
 
@@ -320,6 +333,7 @@ Example:
 localStorage.clear();
 
 ```
+
 <b>If You want to store object in localStorage</b>
 <br>
 Objects and arrays are stored using JSON.stringify() and retrieved using JSON.parse() because localStorage only supports strings.
@@ -359,16 +373,18 @@ console.log(storedUser.name); // Nitish
 ```
 
 # API calls in React :
+
 API (Application Programming Interface) is a way to get or send data between frontend (React) and backend/server.
 <br>
 For Example :
 <br>
+
 1. Fetch users.
-<br>
+   <br>
 2. Send ligin Data.
-<br>
+   <br>
 3. Get Products.
-<br>
+   <br>
 
 <b>Why API Calls are Used?</b>
 
@@ -385,7 +401,7 @@ For Example :
 There are mainly two ways or method that is used to make API Calls in React.
 
 ```bash
-1. fetch() -> This is an built in function or method 
+1. fetch() -> This is an built in function or method
 
 2. axios -> This is a third party library that is used to call an API in  react.
 
@@ -415,6 +431,7 @@ function App() {
 }
 
 ```
+
 <br>
 Flow of this code:
 <br>
@@ -450,6 +467,7 @@ useEffect(() => {
 ```bash
 npm install axios
 ```
+
 <br>
 
 <b>Example:</b>
@@ -465,9 +483,10 @@ useEffect(() => {
 ```
 
 # useEffect hook :
+
 useEffect is a React Hook used to handle side effects in a component.
 <br>
-In Simple words we can say that Think of useEffect like "Do something after UI render". 
+In Simple words we can say that Think of useEffect like "Do something after UI render".
 <br>
 what are side effects here?
 <br>
@@ -538,6 +557,7 @@ useEffect(() => {
 ```
 
 # react-router-dom :
+
 React Router DOM is a library that enables client-side routing in React applications. It allows you to navigate between different components/pages without reloading the entire webpage, making your app behave like a Single Page Application (SPA).
 <br>
 In Simple words we can say that It helps you create multiple pages in React without refreshing the browser.
@@ -554,18 +574,19 @@ Without React Router:
 
 With React Router:
 
-    -> Fast navigation 
+    -> Fast navigation
     -> No reload
     -> Maintains state
     -> Better UX
 
 ```
+
 <b>Installation</b>
 
 ``bash
 npm install react-router-dom
 
-```
+````
 <b>Basic Concepts</b>
 <br>
 
@@ -580,7 +601,8 @@ import { BrowserRouter } from "react-router-dom";
   <App />
 </BrowserRouter>
 
-```
+````
+
 It enables routing in your app.
 <br>
 
@@ -610,6 +632,7 @@ import { Link } from "react-router-dom";
 <Link to="/about">Go to About</Link>
 
 ```
+
 <b> 4. useNavigate (Programmatic Navigation)</b>
 
 ```bash
@@ -653,6 +676,7 @@ function App() {
 <Route path="/user/:id" element={<User />} />
 
 ```
+
 <br>
 
 Access param:
@@ -666,6 +690,7 @@ const { id } = useParams();
 // URL: /user/101 → id = 101
 
 ```
+
 <br>
 
 <b>2. Nested Routes</b>
@@ -677,6 +702,7 @@ const { id } = useParams();
 </Route>
 
 ```
+
 <br>
 Inside Dashboard:
 
@@ -686,6 +712,7 @@ import { Outlet } from "react-router-dom";
 <Outlet />
 
 ```
+
 <br>
 
 <b>3. 404 Page (Not Found)</b>
@@ -694,6 +721,7 @@ import { Outlet } from "react-router-dom";
 <Route path="*" element={<h1>Page Not Found</h1>} />
 
 ```
+
 <br>
 
 <b>4. NavLink (Active Styling)</b>
@@ -723,6 +751,7 @@ const ProtectedRoute = ({ children }) => {
 };
 
 ```
+
 <br>
 Usage:
 
@@ -734,6 +763,7 @@ Usage:
 } />
 
 ```
+
 <br>
 
 <b>2. useLocation</b>
@@ -748,6 +778,7 @@ console.log(location.pathname);
 //Gives current URL info
 
 ```
+
 <br>
 
 <b>3. Passing Data Between Routes</b>
@@ -756,6 +787,7 @@ console.log(location.pathname);
 navigate("/about", { state: { name: "Nitish" } });
 
 ```
+
 Receive:
 <br>
 
@@ -766,6 +798,7 @@ const location = useLocation();
 console.log(location.state.name);
 
 ```
+
 <br>
 
 <b>4. Lazy Loading (Performance Optimization)</b>
@@ -780,15 +813,17 @@ const About = lazy(() => import("./About"));
 </Suspense>
 
 ```
+
 Loads component only when needed.
 
 # ContextAPI :
- The Context API in React is a built-in feature that allows you to share data (state) across multiple components without passing props manually at every level.
- <br>
- In simple words we can say that It helps you avoid "prop drilling" (passing props from parent -> child -> child -> child…).
+
+The Context API in React is a built-in feature that allows you to share data (state) across multiple components without passing props manually at every level.
+<br>
+In simple words we can say that It helps you avoid "prop drilling" (passing props from parent -> child -> child -> child…).
 <br>
 
-<b>Core or Basic  Concepts</b>
+<b>Core or Basic Concepts</b>
 <br>
 There are 3 main steps:
 <br>
@@ -812,6 +847,7 @@ export const UserContext = createContext();
 // Makes data available to all children
 
 ```
+
 <b>3. Consume or use Context</b>
 
 ```bash
@@ -821,6 +857,7 @@ import { UserContext } from "./UserContext";
 const user = useContext(UserContext);
 
 ```
+
 <b>Basic Example</b>
 <br>
 
@@ -830,6 +867,7 @@ const user = useContext(UserContext);
 export const ThemeContext = createContext();
 
 ```
+
 <b>Step 2: Wrap App</b>
 
 ```bash
@@ -837,6 +875,7 @@ export const ThemeContext = createContext();
   <App />
 </ThemeContext.Provider>
 ```
+
 <b>Step 3: Use in Child</b>
 
 ```bash
@@ -879,6 +918,7 @@ export const useUser = () => {
 };
 
 ```
+
 usage:
 
 ```bash
@@ -887,6 +927,7 @@ const { user } = useUser();
 ```
 
 # Component based architecture :
+
 Component-Based Architecture is a software design approach in which an application is built using small, independent, and reusable units called components. Each component handles a specific part of the functionality and can be developed, tested, and maintained separately. These components interact with each other to form a complete system, making development more organized, scalable, and efficient. It is widely used in modern frameworks like React and Angular.
 
 Example:
@@ -919,8 +960,8 @@ const App = () => {
 <b>Types of Components </b>
 
 1. Functional Component ->
-<br>
-A Functional Component is a simple JavaScript function that returns JSX (HTML-like code). It is lightweight, easy to write, and mostly used in modern React applications.
+   <br>
+   A Functional Component is a simple JavaScript function that returns JSX (HTML-like code). It is lightweight, easy to write, and mostly used in modern React applications.
 
 Syntax:
 
@@ -946,8 +987,8 @@ export default Welcome;
 ```
 
 2. Class Components ->
-<br>
-A Class Component is a JavaScript class that extends React.Component. It can store data using state and includes lifecycle methods.
+   <br>
+   A Class Component is a JavaScript class that extends React.Component. It can store data using state and includes lifecycle methods.
 
 Syntax:
 
@@ -976,6 +1017,89 @@ export default Welcome;
 
 ```
 
+# State Management with Redux :
+
+State management with Redux refers to handling and controlling the data (state) of an application in a predictable and centralized way. Redux stores all application data in a single object called the store, making it easier to manage, debug, and track changes. It follows a unidirectional data flow using actions and reducers, which ensures consistency and avoids unexpected behavior in complex applications, especially in frameworks like React.
+
+<b>main components of redux :</b>
+
+1. Store -> The Store is the central place where the entire application state (data) is stored.The main purpose of store is Holds application data, Provides access to state, Allows state updates.
+
+Example:
+
+```bash
+const store = createStore(reducer);
+
+```
+
+2. Action -> An Action is a JavaScript object that describes what operation should happen.The main purpose of actions Sends information to reducer, Tells Redux what to update.
+
+Example:
+
+```bash
+
+// Action object
+{
+  type: "INCREMENT"
+}
+
+```
+
+3. Reducer -> A Reducer is a function that changes the state according to the received action.The Purpose of Reducer Updates state, Returns new state.
+
+Example:
+
+```bash
+function reducer(state, action) {
+   return newState;
+}
+
+```
+
+<b>A full Example of state management with redux :</b>
+
+````bash
+
+//Import redux
+const { createStore } = require("redux")
+
+//1. initial State
+const initialState = {
+  count: 0
+}
+
+// 2. Reducer Function
+// It takes current state and action, and returns new state
+
+function counterReducer(state= initialState, action){
+  switch(action.type){
+    case "INCREMENT":
+       return { count: state.count + 1 }; // increase count
+
+    case "DECREMENT":
+      return { count: state.count - 1 }; // decrease count
+
+    default:
+      return state; // return current state if no match
+  }
+
+}
+
+// 3. Create Store
+const store = createStore(counterReducer);
+
+// 4. Subscribe to store (runs when state changes)
+store.subscribe(() => {
+  console.log("Updated State:", store.getState());
+});
+
+// 5. Dispatch Actions
+store.dispatch({ type: "INCREMENT" }); // count = 1
+store.dispatch({ type: "INCREMENT" }); // count = 2
+store.dispatch({ type: "DECREMENT" }); // count = 1
+
+```
+
 # Code Spliting and Lazy Loading in React?
 Code Splitting and Lazy Loading is an important techniques used in modern web development to improve website performance.They are specially useful in a large Single Page Applications (SPAs) built using framework like React and Angular.This techniques reduce the initial Loading time of a web application and improve user experience.
 <br>
@@ -985,7 +1109,7 @@ Code Splitting and Lazy Loading is an important techniques used in modern web de
 Code Splitting is a performance optimization technique where your JavaScript bundle is divided into smaller chunks instead of sending one large file to the browser.
 Normally, when you build a React or web app, everything gets bundled into a single file (e.g., main.js).
 This can become very large, slowing down your app's initial load time.
-Code Splitting solves this by Breaking code into separate bundles (chunks) , 
+Code Splitting solves this by Breaking code into separate bundles (chunks) ,
 Loading only the required code at the right time.
 <b>In simple words we can say that code Splitting is a A build-time process where bundlers (like  Vite) split code into multiple bundles that can be loaded dynamically.</b>
 <br>
@@ -1019,15 +1143,17 @@ function App() {
 
 export default App;
 
-```
+````
+
 <b>Explanation :</b>
 <br>
+
 1. React.lazy() -> Splits the code into a separate chunk (small chunks).
-<br>
+   <br>
 2. import("./Dashboard") -> Dynamic import (creates new bundle).
-<br>
+   <br>
 3. Suspense -> Shows fallback UI while loading.
-<br>
+   <br>
 
 <b>2. Routing Based Lazy Loading </b>
 Routing Based lazy loading mostly used in real world application to Load pages only when user visits them.
@@ -1059,14 +1185,9 @@ export default App;
 ```
 
 # Caching Strategies :
+
 Caching strategies are techniques used to store frequently accessed data in a temporary storage area (cache) so that future requests can be served faster. Instead of fetching data repeatedly from slow sources like databases or servers, cached data is reused, improving performance, reducing latency, and saving resources. These strategies are widely used in web applications, operating systems, and databases to enhance speed, efficiency, and user experience.
 
 # Optimizing Images and Assets:
+
 Optimizing images and assets means reducing the size and improving the efficiency of images, videos, CSS, JavaScript, and other files used in a website or application without losing quality. This process helps webpages load faster, reduces bandwidth usage, and improves user experience and performance. Techniques include compression, resizing, using modern formats, and minimizing unnecessary data so that assets are delivered quickly and efficiently.
-
-
-
-
-
-
-
