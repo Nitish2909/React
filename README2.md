@@ -1058,7 +1058,7 @@ function reducer(state, action) {
 
 <b>A full Example of state management with redux :</b>
 
-````bash
+```bash
 
 //Import redux
 const { createStore } = require("redux")
@@ -1101,6 +1101,7 @@ store.dispatch({ type: "DECREMENT" }); // count = 1
 ```
 
 # Code Spliting and Lazy Loading in React?
+
 Code Splitting and Lazy Loading is an important techniques used in modern web development to improve website performance.They are specially useful in a large Single Page Applications (SPAs) built using framework like React and Angular.This techniques reduce the initial Loading time of a web application and improve user experience.
 <br>
 
